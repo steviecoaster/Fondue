@@ -1,4 +1,4 @@
-function Update-Metadata {
+function Update-ChocolateyMetadata {
     [Cmdletbinding()]
     Param(
         [Parameter(Mandatory)]

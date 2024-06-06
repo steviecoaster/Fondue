@@ -19,7 +19,7 @@ Function Convert-Xml {
             [xml]$xml = Get-Content $File
         }
 
-        $hash = [ordered]@{}
+        $hash = @{}
 
         foreach ($node in ($xml.package.metadata.ChildNodes | Where-Object {$_.Name -notmatch 'dependencies|#comment'})) {
             $hash.Add($node.Name, $node.'#text')

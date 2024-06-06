@@ -69,13 +69,7 @@ Description = 'A module containing functions that ease creating Chocolatey packa
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('New-Package'
-'Invoke-PackageInternalizer',
-'New-ConfigurationPackage',
-'New-Dependency',
-'Remove-Dependency',
-'Convert-Xml',
-'Update-ChocolateyMetadata')
+FunctionsToExport = @(' New-Package','Convert-Xml','Invoke-PackageInternalizer','New-ConfigurationPackage','New-Dependency','New-MetaPackage','Remove-Dependency','Update-Metadata')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = '*'
@@ -135,4 +129,3 @@ PrivateData = @{
 # DefaultCommandPrefix = ''
 
 }
-
