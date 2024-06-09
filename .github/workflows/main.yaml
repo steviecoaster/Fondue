@@ -21,10 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
-      - name: GitVersion
-        id: gitversion
-        uses: PoshCode/Actions/gitversion@v1
-
       - name: Install-RequiredModules
         uses: PoshCode/Actions/install-requiredmodules@v1
 
