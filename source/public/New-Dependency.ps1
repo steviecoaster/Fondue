@@ -26,7 +26,7 @@ New-Dependency -Nuspec C:\packages\foo.1.1.1.nuspec -dependency @{id= 'baz'; ver
 .EXAMPLE
 Add multiple dependencies
 
-New-Dependency -Nuspec C:\packages\foo.1.1.0.nuspec -Dependency @{id='baz'},@{id='boo';version=[1.0.1,2.9.0]}
+New-Dependency -Nuspec C:\packages\foo.1.1.0.nuspec -Dependency @{id='baz'; version='1.1.1'},@{id='boo';version=[1.0.1,2.9.0]}
 
 .EXAMPLE
 Add a dependency and recompile the package
@@ -135,7 +135,19 @@ New-Dependency @newDependencySplat
         }
 
         # Save the xml back to the nuspec file
-        $xmlContent.Save($Nuspec)
+        $settings = New-Object System.Xml.XmlWriterSettings
+        $settings.Indent = $true
+        $settings.Encoding = [System.Text.Encoding]::UTF8
+
+        $writer = [System.Xml.XmlWriter]::Create($Nuspec, $settings)
+        try {
+            $xmlContent.WriteTo($writer)
+        }
+        finally {
+            $writer.Flush()
+            $writer.Close()
+            $writer.Dispose()
+        }
 
         # Stupid hack to get rid of the 'xlmns=' part of the new dependency nodes. .Net methods are "overly helpful"
         $content = Get-Content -Path $Nuspec -Raw
@@ -158,9 +170,10 @@ New-Dependency @newDependencySplat
                 $choco = (Get-Command choco).Source
                 $null = & $choco @chocoArgs
 
-                if($LASTEXITCODE -eq 0){
+                if ($LASTEXITCODE -eq 0) {
                     'Package is ready and available at {0}' -f $OD
-                } else {
+                }
+                else {
                     throw 'Recompile had an error, see chocolatey.log for details'
                 }
             }

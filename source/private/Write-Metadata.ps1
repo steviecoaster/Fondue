@@ -30,6 +30,18 @@ function Write-Metadata {
 
         #we don't need the namespace on all the nodes, so strip it off
         $xmlDoc = $xmlDoc.OuterXml -replace 'xmlns=""', ''
-        $xmlDoc.Save($NuspecFile)
+        $settings = New-Object System.Xml.XmlWriterSettings
+        $settings.Indent = $true
+        $settings.Encoding = [System.Text.Encoding]::UTF8
+
+        $writer = [System.Xml.XmlWriter]::Create($NuspecFile, $settings)
+        try {
+            $xmlDoc.WriteTo($writer)
+        }
+        finally {
+            $writer.Flush()
+            $writer.Close()
+            $writer.Dispose()
+        }
     }
 }

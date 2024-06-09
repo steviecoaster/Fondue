@@ -1,14 +1,78 @@
 function New-Package {
+    <#
+    .SYNOPSIS
+    Generates a new Chocolatey Package
+    
+    .DESCRIPTION
+    Generates a Chocolatey Package. Can be used to generate from an installer (licensed versions only), meta (virtual) packages, or FOSS style packages
+    
+    .PARAMETER Name
+    The name (Id) to give to the package
+    
+    .PARAMETER IsMetapackage
+    Instructs Chocolatey to create a MetaPackage
+    
+    .PARAMETER File
+    An installer to package. Should be of type exe, msi, msu, or zip
+    
+    .PARAMETER Url
+    The url of an installer to package. Installer will be downloaded and embedded into package. Supports same extensions as -File parameter.
+    
+    .PARAMETER Dependency
+    Dependencies to inject into the package. Required when using -IsMetaPackage.
+    
+    .PARAMETER Metadata
+    A hashtable of MetaData to include in the Nuspec File
+    
+    .PARAMETER OutputDirectory
+    This is where the Chocolatey packaging will be generated. Defaults to the current working directory.
+    
+    .PARAMETER Recompile
+    When used runs the pack command against the nuspec file
+    
+    .EXAMPLE
+
+    Creating a basic package with a name:
+
+    $params = @{
+        Name = "MyPackage"
+    }
+    New-Package @params
+
+    .EXAMPLE
+
+    Create a package from an installer file
+
+    New-Package -Name "MyInstallerPackage" -File "C:\path\to\installer.exe"
+    
+    .EXAMPLE
+
+    Create a package from an installer URL
+
+    New-Package -Name "MyUrlPackage" -Url "http://example.com/installer.exe"
+
+    .EXAMPLE
+
+    Create a package with metadata
+
+    New-Package -Name "MyPackageWithMetadata" -Metadata @{Author="Me"; Version="1.0.0"}
+
+    .EXAMPLE
+
+    Create a package in a specific output directory
+
+    New-Package -Name "MyPackage" -OutputDirectory "C:\path\to\output\directory"
+
+    .NOTES
+    
+    .LINK
+    https://docs.chocolatey.org/en-us/guides/create/
+    #>
     [CmdletBinding(DefaultParameterSetName = 'Default')]
     Param(
         [Parameter(Mandatory, ParameterSetName = 'Default')]
-        [Parameter(Mandatory, ParameterSetName = 'Metapackage')]
         [String]
         $Name,
-
-        [Parameter(ParameterSetName = 'Metapackage')]
-        [Switch]
-        $IsMetapackage,
 
         [Parameter(Mandatory, ParameterSetName = 'File')]
         [ValidateScript({ Test-Path $_ })]
@@ -22,27 +86,23 @@ function New-Package {
         [Parameter(ParameterSetName = 'Default')]
         [Parameter(ParameterSetName = 'File')]
         [Parameter(ParameterSetName = 'Url')]
-        [Parameter(Mandatory, ParameterSetName = 'Metapackage')]
         [Hashtable[]]
         $Dependency,
 
         [Parameter(ParameterSetName = 'Default')]
         [Parameter(ParameterSetName = 'File')]
         [Parameter(ParameterSetName = 'Url')]
-        [Parameter(ParameterSetName = 'Metapackage')]
         [Hashtable]
         $Metadata,
 
         [Parameter(ParameterSetName = 'Default')]
         [Parameter(ParameterSetName = 'File')]
         [Parameter(ParameterSetName = 'Url')]
-        [Parameter(ParameterSetName = 'Metapackage')]
         [String]
         $OutputDirectory = $PWD,
 
         [Parameter(ParameterSetName = 'FIle')]
         [Parameter(ParameterSetName = 'Url')]
-        [Parameter(ParameterSetName = 'MetaPackage')]
         [Switch]
         $Recompile
     )
@@ -50,17 +110,33 @@ function New-Package {
     process {
         switch ($PSCmdlet.ParameterSetName) {
             'File' {
+
+                $licenseValid = Assert-LicenseValid
+                $extensionInstalled = Test-Path "$env:ChocolateyInstall\lib\chocolatey.extension"
+
+                if (-not $licenseValid) {
+                    throw 'A valid Chocolatey license is required to use -File but was not found on this system.'
+                }
+
+                if (-not $extensionInstalled) {
+                    throw 'A valid license file was found, but the Chocolatey Licensed Extension is not installed. The Chocolatey Licensed Extension is required to use -File.'
+                }
+
                 $chocoArgs = @('new', "--file='$file'", "--output-directory='$OutputDirectory'", '--build-package')
                 $i = 4
             }
             'Url' {
+
+                if (-not $licenseValid) {
+                    throw 'A valid Chocolatey license is required to use -Url but was not found on this system.'
+                }
+
+                if (-not $extensionInstalled) {
+                    throw 'A valid license file was found, but the Chocolatey Licensed Extension is not installed. The Chocolatey Licensed Extension is required to use -Url.'
+                }
+
                 $chocoArgs = @('new', "--url='$url'", "--output-directory='$OutputDirectory'", '--build-package', '--no-progress')
                 $i = 7
-            }
-
-            'Metapackage' {
-                $chocoArgs = @('new', "$Name", "--output-directory='$OutputDirectory'", "--template='metapackage'")
-                $i = 4
             }
 
             default {
@@ -76,12 +152,7 @@ function New-Package {
         $null = $choco[$i] -match $matcher
 
         if ($matches.nuspec) {
-            if ($IsMetapackage) {
-                'Adding dependencies to package {0}' -f $Name
-            }
-            else {
-                'Adding dependencies to package {0}, if any' -f $matches.nuspec
-            }
+            'Adding dependencies to package {0}, if any' -f $matches.nuspec
         }
         else {
             throw 'Something went wrong, check the chocolatey.log file for details!'
@@ -97,7 +168,7 @@ function New-Package {
             New-Dependency @newDependencySplat
         }
 
-        if($Metadata){
+        if ($Metadata) {
             Write-Metadata -Metadata $Metadata -NuspecFile $matches.nuspec
         }
         
