@@ -21,7 +21,7 @@ Build-Module -SemVer $SemVer -Passthru:$PassThru -OutVariable build
 $scriptRoot = Split-Path -parent $MyInvocation.MyCommand.Definition
 $source = Join-Path $scriptRoot -ChildPath 'source'
 $docs = Join-Path $scriptRoot -ChildPath 'docs'
-$testPath = Join-Path $source -ChildPath 'tests'
+$testPath = Join-Path $source -ChildPath 'module_tests'
 Copy-Item $testPath -Recurse -Destination $build.ModuleBase
 $moduleFolder = Join-Path $scriptRoot -ChildPath $build.Version
 
