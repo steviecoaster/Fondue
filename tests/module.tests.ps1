@@ -4,13 +4,18 @@ Param(
     [String]
     $Module
 )
+Write-Warning "Got $Module"
 Import-Module -Name $Module
 Describe 'Public function availability tests' {
     BeforeDiscovery {
-        $expectedPublicFunctions = 'Function1', 'Function2', 'Function3'
-        $publicFunctions = (Get-Command -Module 'PathToYourModule').Name
+        $expectedPublicFunctions = @('Convert-Xml','New-Package','New-Dependency','New-MetaPackage')
+        $publicFunctions = (Get-Command -Module Chocolatier).Name
     }
-    It 'Public function <_> is available' -ForEach $publicFunctions {
-        $_ | Should -BeIn $expectedPublicFunctions
+
+    Context 'Public functions are available to the module' {
+        It 'Public function <_> is available' -ForEach $expectedpublicFunctions {
+            $_ | Should -BeIn $PublicFunctions
+        }
     }
+
 }

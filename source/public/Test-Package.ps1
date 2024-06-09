@@ -49,7 +49,7 @@ function Test-Package {
         $Data = @{ PackagePath = $PackagePath }
         $moduleRoot = (Get-Module Chocolatier).ModuleBase
         
-        $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'tests') -Recurse -Filter package*.tests.ps1) | Select-Object Name, FullName
+        $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'module_tests') -Recurse -Filter package*.tests.ps1) | Select-Object Name, FullName
 
         $containerCollection = [System.Collections.Generic.List[psobject]]::new()
 

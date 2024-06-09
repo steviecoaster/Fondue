@@ -70,7 +70,7 @@ function Test-Nuspec {
 
         $moduleRoot = (Get-Module Chocolatier).ModuleBase
         
-        $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'tests') -Recurse -Filter nuspec*.tests.ps1) | Select-Object Name, FullName
+        $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'module_tests') -Recurse -Filter nuspec*.tests.ps1) | Select-Object Name, FullName
 
         $containerCollection = [System.Collections.Generic.List[psobject]]::new()
 
