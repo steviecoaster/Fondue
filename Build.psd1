@@ -1,6 +1,6 @@
 @{
-    ModuleManifest           = "./source/Chocolatier.psd1"
+    ModuleManifest           = "./source/Fondue.psd1"
     Suffix                   = "Suffix.ps1"
-    OutputDirectory          = ".."
+    OutputDirectory          = "../Fondue"
     VersionedOutputDirectory = $true
 }

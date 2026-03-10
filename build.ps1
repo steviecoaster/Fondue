@@ -16,19 +16,17 @@ param(
     [switch]$PassThru
 )
 
-Build-Module -SemVer $SemVer -Passthru:$PassThru -OutVariable build
+$build = Build-Module -SemVer $SemVer -Passthru
+if ($PassThru) { $build }
 
 $scriptRoot = Split-Path -parent $MyInvocation.MyCommand.Definition
 $source = Join-Path $scriptRoot -ChildPath 'source'
 $docs = Join-Path $scriptRoot -ChildPath 'docs'
 $testPath = Join-Path $source -ChildPath 'module_tests'
-Copy-Item $testPath -Recurse -Destination $build.ModuleBase
-$moduleFolder = Join-Path $scriptRoot -ChildPath $build.Version
+Copy-Item $testPath -Recurse -Destination $build.ModuleBase -Force
 
-$psd1 = Join-Path $moduleFolder -ChildPath 'Chocolatier.psd1'
-
-Publish-Module -Path $moduleFolder -Repository PowerShell -NuGetApiKey 605022a4-ab59-33c0-998c-7b60b5c6e801
+$psd1 = Join-Path $build.ModuleBase -ChildPath 'Fondue.psd1'
 
 Import-Module $psd1 -Force
 
-New-MarkdownHelp -Module Chocolatier -OutputFolder $docs
+New-MarkdownHelp -Module Fondue -OutputFolder $docs
