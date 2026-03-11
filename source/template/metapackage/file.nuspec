@@ -1,0 +1,12 @@
+<!--"Do not remove this test for UTF-8: if 'Ω' doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one."-->
+<package>
+    <metadata>
+        <id>[[Id]]</id>
+        <version>[[Version]]</version>
+        <authors>[[Authors]]</authors>
+        <summary>[[Summary]]</summary>
+        <description>[[Description]]</description>
+        <tags>[[Id]]</tags>
+        <projectUrl>https://placeholder</projectUrl>
+    </metadata>
+</package>
