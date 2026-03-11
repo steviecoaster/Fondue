@@ -49,7 +49,7 @@ function New-Metapackage {
     General notes
     #>
     [Alias('New-VirtualPackage')]
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/New-Metapackage')]
     Param(
         [Parameter(Position = 0, Mandatory)]
         [String]
@@ -88,35 +88,24 @@ function New-Metapackage {
         $Version = '0.1.0'
     )
 
+    begin {
+        $chocoTemplatesPath = 'C:\ProgramData\chocolatey\templates'
+
+        if (-not (Test-Path $chocoTemplatesPath)) {
+            $null = New-Item -ItemType Directory -Path $chocoTemplatesPath -Force
+        }
+
+        $copyItemSplat = @{
+            Path        = Join-Path $PSScriptRoot 'template\metapackage'
+            Destination = $chocoTemplatesPath
+            Recurse     = $true
+            Force       = $true
+        }
+        Copy-Item @copyItemSplat
+    }
+
     end {
-
-        $Filename = '{0}.nuspec' -f $Id
-        $SavePath = Join-Path $Path -ChildPath $Id
-
-        if (-not (Test-Path $SavePath)) {
-            $null = New-Item $SavePath -ItemType Directory
-        }
-
-        $NuspecFile = Join-Path $SavePath -ChildPath $Filename
-
-        if (-not (Test-Path $NuspecFile)) {
-            $Null = New-Item $NuspecFile -ItemType File
-        }
-        $metadata = @{}
-
-        $metadata.id = $id
-        $metadata.version = $Version.ToString()
-        $metadata.summary = $Summary
-        $metadata.authors = ($env:Username).Split('\')[-1] #Account for domain accounts
-        $metadata.tags = $Id
-        $metadata.projectUrl = 'https://placeholder' # Required for community validation extension
-
-        if ($Description) {
-            $metadata.description = $Description
-        }
-        
-        Scaffold-Nuspec -Path $NuspecFile
-        Write-Metadata -Metadata $metadata -NuspecFile $NuspecFile
-        New-Dependency -Nuspec $NuspecFile -Dependency $Dependency
+        $chocoArgs = @('new', "$Id", '--template="metapackage"', "Id=$Id", "Summary=$Summary", "Description=$Description", "Version=$Version")
+        & choco @chocoArgs
     }
 }

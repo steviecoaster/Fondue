@@ -34,7 +34,7 @@ function Test-Nuspec {
         .NOTES
         The function uses the Convert-Xml function to convert the .nuspec file to a hash table of metadata.
     #>
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Test-Nuspec')]
     Param(
         [Parameter()]
         [ValidateScript({ Test-Path $_ })]
@@ -47,11 +47,7 @@ function Test-Nuspec {
 
         [Parameter()]
         [Switch]
-        $OnlyRequiredRules,
-
-        [Parameter()]
-        [Switch]
-        $TestCommunityRules,
+        $SkipBuiltinTests,
 
         [Parameter()]
         [String[]]
@@ -68,31 +64,22 @@ function Test-Nuspec {
             @{ Metadata = $Metadata }
         }
 
-        $moduleRoot = (Get-Module Chocolatier).ModuleBase
-        
+        $moduleRoot = (Get-Module Fondue).ModuleBase
         $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'module_tests') -Recurse -Filter nuspec*.tests.ps1) | Select-Object Name, FullName
-
         $containerCollection = [System.Collections.Generic.List[psobject]]::new()
 
-        if ($OnlyRequiredRules) {
-            $tests = ($SystemTests | Where-Object Name -match 'required').FullName
-            $containerCollection.Add($tests)
-        }
-
-        elseif ($TestCommunityRules) {
-            $tests = ($SystemTests | Where-Object Name -match 'community').FullName
-            $containerCollection.Add($tests)
-        }
-        else {
-            $tests = ($SystemTests).FullName
-            $containerCollection.Add($tests)
+        if(-not $SkipBuiltinTests){
+            $SystemTests |ForEach-Object{ $containerCollection.Add($_.FullName)}
         }
 
         if ($AdditionalTest) {
             $AdditionalTest | ForEach-Object { $containerCollection.Add($_) }
         }
 
-        
+        if($SkipBuiltinTests -and (-not $AdditionalTest)){
+            throw '-SkipBuiltinTests was passed, but not additional tests. Please pass additional tests, or remove -SkipBuiltinTests'
+        }
+       
         $containers = $containerCollection | Foreach-object { New-PesterContainer -Path $_ -Data $data }
 
         $configuration = [PesterConfiguration]@{

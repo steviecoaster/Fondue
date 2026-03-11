@@ -26,9 +26,9 @@ function Test-Package {
         This example tests the NuGet package at the specified path and runs the additional tests "Test1" and "Test2".
 
         .NOTES
-        The function uses the Chocolatier module to perform the tests.
+        The function uses the Fondue module to perform the tests.
     #>
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Test-Package')]
     Param(
         [Parameter(Mandatory)]
         [ValidateScript({ Test-Path $_ })]
@@ -47,7 +47,7 @@ function Test-Package {
     process {
 
         $Data = @{ PackagePath = $PackagePath }
-        $moduleRoot = (Get-Module Chocolatier).ModuleBase
+        $moduleRoot = (Get-Module Fondue).ModuleBase
         
         $SystemTests = (Get-ChildItem (Join-Path $moduleRoot -ChildPath 'module_tests') -Recurse -Filter package*.tests.ps1) | Select-Object Name, FullName
 

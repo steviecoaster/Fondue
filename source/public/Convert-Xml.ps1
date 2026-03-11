@@ -28,7 +28,7 @@ Function Convert-Xml {
     .NOTES
     The function does not support XML content that contains dependencies or comments.
     #>
-    [cmdletBinding()]
+    [cmdletBinding(HelpUri='https://steviecoaster.github.io/Fondue/Convert-Xml')]
     Param(
         [Parameter()]
         [String]

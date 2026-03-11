@@ -21,7 +21,7 @@ function Remove-Dependency {
         .NOTES
         The function does not support removing dependencies that are not directly listed in the .nuspec file.
     #>
-    [CmdletBinding()]
+    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Remove-Dependency')]
     Param(
         [Parameter(Mandatory)]
         [String]
