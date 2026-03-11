@@ -1,0 +1,17 @@
+site_name: Fondue - Melting Chocolatey package complexity
+theme: readthedocs
+repo_url: https://github.com/steviecoaster/Fondue
+docs_dir: ./docs/markdown/Fondue
+
+nav:
+  - Home: index.md
+  - Convert-Xml: Convert-Xml.md
+  - New-Dependency: New-Dependency.md
+  - New-Metapackage: New-Metapackage.md
+  - New-Package: New-Package.md
+  - Open-FondueHelp: Open-FondueHelp.md
+  - Remove-Dependency: Remove-Dependency.md
+  - Sync-Package: Sync-Package.md
+  - Test-Nuspec: Test-Nuspec.md
+  - Test-Package: Test-Package.md
+  - Update-ChocolateyMetadata: Update-ChocolateyMetadata.md
