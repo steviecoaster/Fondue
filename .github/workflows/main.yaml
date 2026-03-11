@@ -1,45 +1,59 @@
-name: Build Chocolatier
+name: Build Fondue
 
 on:
   push:
     branches-ignore:
       - gh-pages
   pull_request:
-    branches: 
+    branches:
       - main
       - develop
-
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
-    env:
-      NugetApiKey: ${{ secrets.NugetApiKey }}
-      ChocoApiKey: ${{ secrets.ChocoApiKey }}
+    permissions:
+      contents: write
 
     steps:
-      - uses: actions/checkout@v2
-        
-      - name: Install-RequiredModules
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v3
+        with:
+          versionSpec: '6.x'
+
+      - name: Determine Version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v3
+
+      - name: Install Required Modules
         uses: PoshCode/Actions/install-requiredmodules@v1
+        with:
+          requiredModules-path: Requirements.psd1
 
       - name: Build Module
-        run: .\build.ps1 -Build -SemVer "${{ steps.gitversion.outputs.LegacySemVerPadded }}"
         shell: pwsh
-
-      - name: Upload Built Module
-        uses: actions/upload-artifact@v2
-        with:
-          name: Chocolatier.${{ steps.gitversion.outputs.LegacySemVerPadded }}
-          path: .\Output
+        run: .\build.ps1 -Build -SemVer "${{ steps.gitversion.outputs.semVer }}"
 
       - name: Test Module
-        run: .\build.ps1 -RunTest -SemVer "${{ steps.gitversion.outputs.LegacySemVerPadded }}"
         shell: pwsh
+        run: .\build.ps1 -Build -LoadModule -Test
 
-      - name: Upload Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
-        if: always()
+      - name: Generate Documentation
+        shell: pwsh
+        run: .\build.ps1 -Build -LoadModule -Document
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          files: TestResults.xml
+          python-version: '3.x'
+
+      - name: Install MkDocs
+        run: pip install mkdocs
+
+      - name: Deploy Documentation
+        run: mkdocs gh-deploy --force
