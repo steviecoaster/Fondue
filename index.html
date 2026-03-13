@@ -42,7 +42,121 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#new-package">New-Package</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#create-a-basic-named-package-in-the-current-directory">Create a basic named package in the current directory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scaffold-a-package-from-a-local-installer">Scaffold a package from a local installer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scaffold-a-package-from-a-download-url-installer-is-downloaded-and-embedded">Scaffold a package from a download URL (installer is downloaded and embedded)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-a-package-with-rich-metadata">Create a package with rich metadata</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scaffold-and-immediately-compile-to-nupkg">Scaffold and immediately compile to .nupkg</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#write-output-to-a-specific-directory">Write output to a specific directory</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new-metapackage">New-Metapackage</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#minimal-metapackage">Minimal metapackage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pin-specific-dependency-versions">Pin specific dependency versions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#set-an-explicit-version-and-save-to-a-custom-path">Set an explicit version and save to a custom path</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pre-release-version">Pre-release version</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#new-dependency">New-Dependency</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#add-a-single-versioned-dependency">Add a single versioned dependency</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-multiple-dependencies-at-once">Add multiple dependencies at once</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-a-dependency-and-immediately-repack">Add a dependency and immediately repack</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-repack-and-save-to-a-different-output-folder">Add, repack, and save to a different output folder</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remove-dependency">Remove-Dependency</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#remove-a-single-dependency">Remove a single dependency</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#remove-multiple-dependencies">Remove multiple dependencies</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#update-chocolateymetadata">Update-ChocolateyMetadata</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#bump-the-version-and-add-a-release-note">Bump the version and add a release note</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pipeline-usage">Pipeline usage</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sync-package">Sync-Package</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#sync-everything-not-already-managed-by-chocolatey">Sync everything not already managed by Chocolatey</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sync-a-single-application-by-display-name-and-desired-package-id">Sync a single application by display name and desired package ID</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#sync-from-a-hashtable-map-of-displayname-packageid-pairs">Sync from a hashtable map of DisplayName → PackageId pairs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#write-synced-packages-to-a-custom-output-directory">Write synced packages to a custom output directory</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#convert-xml">Convert-Xml</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#convert-a-local-nuspec-to-a-hashtable">Convert a local nuspec to a hashtable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fetch-and-convert-a-nuspec-from-a-url">Fetch and convert a nuspec from a URL</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pipe-the-result-into-update-chocolateymetadata">Pipe the result into Update-ChocolateyMetadata</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#test-nuspec">Test-Nuspec</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#run-all-built-in-tests-against-a-nuspec">Run all built-in tests against a nuspec</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#test-a-raw-metadata-hashtable-instead-of-a-file">Test a raw metadata hashtable instead of a file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#skip-built-in-tests-and-run-only-your-own">Skip built-in tests and run only your own</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#combine-built-in-tests-with-additional-custom-tests">Combine built-in tests with additional custom tests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#test-package">Test-Package</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#run-all-built-in-package-tests">Run all built-in package tests</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#run-only-the-mandatory-required-rules">Run only the mandatory (required) rules</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-extra-pester-test-scripts-on-top-of-the-built-in-suite">Add extra Pester test scripts on top of the built-in suite</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#open-fonduehelp">Open-FondueHelp</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#building-from-source">Building from Source</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#license">License</a>
     </li>
     </ul>
                 </li>
@@ -94,9 +208,370 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="fondue-module">Fondue Module</h1>
-<h2 id="description">Description</h2>
-<p>A module containing functions that ease creating Chocolatey packages</p>
+                <h1 id="fondue">Fondue</h1>
+<blockquote>
+<p>A PowerShell module that melts away the complexity of creating and managing Chocolatey packages.</p>
+</blockquote>
+<p>Fondue provides a rich set of cmdlets that streamline every step of the Chocolatey package lifecycle — from scaffolding new packages and metapackages, to managing dependencies, updating metadata, syncing installed software, and validating your work before publishing.</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#new-package">New-Package</a></li>
+<li><a href="#new-metapackage">New-Metapackage</a></li>
+<li><a href="#new-dependency">New-Dependency</a></li>
+<li><a href="#remove-dependency">Remove-Dependency</a></li>
+<li><a href="#update-chocolateymetadata">Update-ChocolateyMetadata</a></li>
+<li><a href="#sync-package">Sync-Package</a></li>
+<li><a href="#convert-xml">Convert-Xml</a></li>
+<li><a href="#test-nuspec">Test-Nuspec</a></li>
+<li><a href="#test-package">Test-Package</a></li>
+<li><a href="#open-fonduehelp">Open-FondueHelp</a></li>
+<li><a href="#building-from-source">Building from Source</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<hr />
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>PowerShell 5.1+ / PowerShell 7+</li>
+<li><a href="https://chocolatey.org/">Chocolatey</a> installed</li>
+<li>Some commands require a <strong>Chocolatey for Business</strong> license (noted per-command below)</li>
+</ul>
+<hr />
+<h2 id="installation">Installation</h2>
+<pre><code class="language-powershell">Install-Module -Name Fondue
+</code></pre>
+<p>Or import a locally built copy:</p>
+<pre><code class="language-powershell">Import-Module .\Output\Fondue\Fondue.psd1
+</code></pre>
+<hr />
+<h2 id="commands">Commands</h2>
+<h3 id="new-package">New-Package</h3>
+<p>Scaffolds a new Chocolatey package. Supports basic package creation, packaging from a local installer file, packaging from a URL, and creating metapackages — all with optional metadata injection.</p>
+<p><em>Some features, like passing -File and -Url, require a Chocolatey for Business license</em></p>
+<h4 id="create-a-basic-named-package-in-the-current-directory">Create a basic named package in the current directory</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name = 'MyApp'
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<h4 id="scaffold-a-package-from-a-local-installer">Scaffold a package from a local installer</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name = 'MyApp'
+    File = 'C:\installers\myapp-setup.exe'
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<h4 id="scaffold-a-package-from-a-download-url-installer-is-downloaded-and-embedded">Scaffold a package from a download URL (installer is downloaded and embedded)</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name = 'MyApp'
+    Url  = 'https://example.com/myapp-setup.exe'
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<h4 id="create-a-package-with-rich-metadata">Create a package with rich metadata</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name     = 'MyApp'
+    Metadata = @{
+        Authors     = 'Acme Corp'
+        Version     = '2.1.0'
+        Description = 'The best app ever made'
+        ProjectUrl  = 'https://example.com'
+    }
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<h4 id="scaffold-and-immediately-compile-to-nupkg">Scaffold and immediately compile to .nupkg</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name      = 'MyApp'
+    Recompile = $true
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<h4 id="write-output-to-a-specific-directory">Write output to a specific directory</h4>
+<pre><code class="language-powershell">$newPackageSplat = @{
+    Name            = 'MyApp'
+    OutputDirectory = 'C:\chocopackages'
+}
+
+New-Package @newPackageSplat
+</code></pre>
+<hr />
+<h3 id="new-metapackage">New-Metapackage</h3>
+<p>Creates a Chocolatey meta (virtual) package — a package that contains no software itself but declares a set of dependencies that will be installed together.</p>
+<h4 id="minimal-metapackage">Minimal metapackage</h4>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id = 'git'}, @{id = 'vscode'}, @{id = 'nodejs'}
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
+<h4 id="pin-specific-dependency-versions">Pin specific dependency versions</h4>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id = 'git'; version = '2.44.0'}, @{id = 'putty'}
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
+<h4 id="set-an-explicit-version-and-save-to-a-custom-path">Set an explicit version and save to a custom path</h4>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id = 'git'; version = '2.44.0'}, @{id = 'putty'}
+    Version     = '1.0.0'
+    Path        = 'C:\chocopackages'
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
+<h4 id="pre-release-version">Pre-release version</h4>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id = 'git'}
+    Version     = '1.0.0-pre'
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
+<blockquote>
+<p><strong>Alias:</strong> <code>New-VirtualPackage</code></p>
+</blockquote>
+<hr />
+<h3 id="new-dependency">New-Dependency</h3>
+<p>Injects one or more <code>&lt;dependency&gt;</code> nodes into an existing <code>.nuspec</code> file, with an optional step to recompile the package afterwards.</p>
+<h4 id="add-a-single-versioned-dependency">Add a single versioned dependency</h4>
+<pre><code class="language-powershell">$newDependencySplat = @{
+    Nuspec     = 'C:\packages\myapp.1.0.0.nuspec'
+    Dependency = @{id = 'vcredist140'; version = '14.30.0'}
+}
+
+New-Dependency @newDependencySplat
+</code></pre>
+<h4 id="add-multiple-dependencies-at-once">Add multiple dependencies at once</h4>
+<pre><code class="language-powershell">$newDependencySplat = @{
+    Nuspec     = 'C:\packages\myapp.1.0.0.nuspec'
+    Dependency = @{id = 'git'; version = '2.44.0'}, @{id = 'nodejs'; version = '[18.0.0,20.0.0)'}
+}
+
+New-Dependency @newDependencySplat
+</code></pre>
+<h4 id="add-a-dependency-and-immediately-repack">Add a dependency and immediately repack</h4>
+<pre><code class="language-powershell">$newDependencySplat = @{
+    Nuspec     = 'C:\packages\myapp.1.0.0.nuspec'
+    Dependency = @{id = 'vcredist140'; version = '14.30.0'}
+    Recompile  = $true
+}
+
+New-Dependency @newDependencySplat
+</code></pre>
+<h4 id="add-repack-and-save-to-a-different-output-folder">Add, repack, and save to a different output folder</h4>
+<pre><code class="language-powershell">$newDependencySplat = @{
+    Nuspec          = 'C:\packages\myapp.1.0.0.nuspec'
+    Dependency      = @{id = 'vcredist140'}
+    Recompile       = $true
+    OutputDirectory = 'C:\recompiled'
+}
+
+New-Dependency @newDependencySplat
+</code></pre>
+<hr />
+<h3 id="remove-dependency">Remove-Dependency</h3>
+<p>Removes one or more dependencies from an existing <code>.nuspec</code> file.</p>
+<h4 id="remove-a-single-dependency">Remove a single dependency</h4>
+<pre><code class="language-powershell">$removeDependencySplat = @{
+    PackageNuspec = 'C:\packages\myapp.nuspec'
+    Dependency    = 'vcredist140'
+}
+
+Remove-Dependency @removeDependencySplat
+</code></pre>
+<h4 id="remove-multiple-dependencies">Remove multiple dependencies</h4>
+<pre><code class="language-powershell">$removeDependencySplat = @{
+    PackageNuspec = 'C:\packages\myapp.nuspec'
+    Dependency    = 'vcredist140', 'dotnetfx'
+}
+
+Remove-Dependency @removeDependencySplat
+</code></pre>
+<hr />
+<h3 id="update-chocolateymetadata">Update-ChocolateyMetadata</h3>
+<p>Updates one or more metadata fields inside a <code>.nuspec</code> file from a hashtable.</p>
+<h4 id="bump-the-version-and-add-a-release-note">Bump the version and add a release note</h4>
+<pre><code class="language-powershell">$updateMetadataSplat = @{
+    NuspecFile = 'C:\packages\myapp.nuspec'
+    Metadata   = @{
+        version      = '2.2.0'
+        releaseNotes = 'Fixed a critical bug.'
+    }
+}
+
+Update-ChocolateyMetadata @updateMetadataSplat
+</code></pre>
+<h4 id="pipeline-usage">Pipeline usage</h4>
+<pre><code class="language-powershell">$updateMetadataSplat = @{
+    NuspecFile = 'C:\packages\myapp.nuspec'
+}
+@{version = '3.0.0'} | Update-ChocolateyMetadata @updateMetadataSplat
+</code></pre>
+<hr />
+<h3 id="sync-package">Sync-Package</h3>
+<p>Brings software already installed on the machine (visible in <strong>Programs and Features</strong>) under Chocolatey management using <code>choco sync</code>.</p>
+<blockquote>
+<p><strong>Requires:</strong> Chocolatey for Business license + Chocolatey Licensed Extension</p>
+</blockquote>
+<h4 id="sync-everything-not-already-managed-by-chocolatey">Sync everything not already managed by Chocolatey</h4>
+<pre><code class="language-powershell">Sync-Package
+</code></pre>
+<h4 id="sync-a-single-application-by-display-name-and-desired-package-id">Sync a single application by display name and desired package ID</h4>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Id          = 'googlechrome'
+    DisplayName = 'Google Chrome'
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<h4 id="sync-from-a-hashtable-map-of-displayname-packageid-pairs">Sync from a hashtable map of DisplayName → PackageId pairs</h4>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Map = @{
+        'Google Chrome' = 'googlechrome'
+        'Notepad++'     = 'notepadplusplus'
+    }
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<h4 id="write-synced-packages-to-a-custom-output-directory">Write synced packages to a custom output directory</h4>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Map             = @{'Notepad++' = 'notepadplusplus'}
+    OutputDirectory = 'C:\synced'
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<hr />
+<h3 id="convert-xml">Convert-Xml</h3>
+<p>Reads a <code>.nuspec</code> file (from disk or a URL) and converts the package metadata into a PowerShell hashtable — great for piping into <code>Update-ChocolateyMetadata</code> or <code>Test-Nuspec</code>.</p>
+<h4 id="convert-a-local-nuspec-to-a-hashtable">Convert a local nuspec to a hashtable</h4>
+<pre><code class="language-powershell">$convertXmlSplat = @{
+    File = 'C:\packages\myapp.nuspec'
+}
+
+$meta = Convert-Xml @convertXmlSplat
+</code></pre>
+<h4 id="fetch-and-convert-a-nuspec-from-a-url">Fetch and convert a nuspec from a URL</h4>
+<pre><code class="language-powershell">$convertXmlSplat = @{
+    Url = 'https://packages.example.com/myapp/myapp.nuspec'
+}
+
+$meta = Convert-Xml @convertXmlSplat
+</code></pre>
+<h4 id="pipe-the-result-into-update-chocolateymetadata">Pipe the result into Update-ChocolateyMetadata</h4>
+<pre><code class="language-powershell">$convertXmlSplat = @{
+    File = 'C:\packages\myapp.nuspec'
+}
+$updateMetadataSplat = @{
+    NuspecFile = 'C:\packages\myapp.nuspec'
+}
+
+Convert-Xml @convertXmlSplat | Update-ChocolateyMetadata @updateMetadataSplat
+</code></pre>
+<hr />
+<h3 id="test-nuspec">Test-Nuspec</h3>
+<p>Validates a <code>.nuspec</code> file (or a raw metadata hashtable) against Fondue's built-in rule set. You can also supply additional Pester-based test scripts for organization-specific requirements.</p>
+<h4 id="run-all-built-in-tests-against-a-nuspec">Run all built-in tests against a nuspec</h4>
+<pre><code class="language-powershell">$testNuspecSplat = @{
+    NuspecFile = 'C:\packages\myapp.nuspec'
+}
+
+Test-Nuspec @testNuspecSplat
+</code></pre>
+<h4 id="test-a-raw-metadata-hashtable-instead-of-a-file">Test a raw metadata hashtable instead of a file</h4>
+<pre><code class="language-powershell">$testNuspecSplat = @{
+    Metadata = @{id = 'myapp'; version = '1.0.0'}
+}
+
+Test-Nuspec @testNuspecSplat
+</code></pre>
+<h4 id="skip-built-in-tests-and-run-only-your-own">Skip built-in tests and run only your own</h4>
+<pre><code class="language-powershell">$testNuspecSplat = @{
+    NuspecFile       = 'C:\packages\myapp.nuspec'
+    SkipBuiltinTests = $true
+    AdditionalTest   = 'C:\tests\my-nuspec-rules.tests.ps1'
+}
+
+Test-Nuspec @testNuspecSplat
+</code></pre>
+<h4 id="combine-built-in-tests-with-additional-custom-tests">Combine built-in tests with additional custom tests</h4>
+<pre><code class="language-powershell">$testNuspecSplat = @{
+    NuspecFile     = 'C:\packages\myapp.nuspec'
+    AdditionalTest = 'C:\tests\my-nuspec-rules.tests.ps1'
+}
+
+Test-Nuspec @testNuspecSplat
+</code></pre>
+<hr />
+<h3 id="test-package">Test-Package</h3>
+<p>Validates an already-packed <code>.nupkg</code> file against Fondue's package-level rule set. Useful as a gate before publishing.</p>
+<h4 id="run-all-built-in-package-tests">Run all built-in package tests</h4>
+<pre><code class="language-powershell">$testPackageSplat = @{
+    PackagePath = 'C:\packages\myapp.2.0.0.nupkg'
+}
+
+Test-Package @testPackageSplat
+</code></pre>
+<h4 id="run-only-the-mandatory-required-rules">Run only the mandatory (required) rules</h4>
+<pre><code class="language-powershell">$testPackageSplat = @{
+    PackagePath       = 'C:\packages\myapp.2.0.0.nupkg'
+    OnlyRequiredRules = $true
+}
+
+Test-Package @testPackageSplat
+</code></pre>
+<h4 id="add-extra-pester-test-scripts-on-top-of-the-built-in-suite">Add extra Pester test scripts on top of the built-in suite</h4>
+<pre><code class="language-powershell">$testPackageSplat = @{
+    PackagePath    = 'C:\packages\myapp.2.0.0.nupkg'
+    AdditionalTest = 'C:\tests\internal-policy.tests.ps1'
+}
+
+Test-Package @testPackageSplat
+</code></pre>
+<hr />
+<h3 id="open-fonduehelp">Open-FondueHelp</h3>
+<p>Opens the Fondue documentation website in your default browser.</p>
+<pre><code class="language-powershell">Open-FondueHelp
+</code></pre>
+<hr />
+<h2 id="building-from-source">Building from Source</h2>
+<p>Fondue uses <a href="https://github.com/PoshCode/ModuleBuilder">ModuleBuilder</a> to compile the module from the <code>source/</code> directory.</p>
+<pre><code class="language-powershell"># Install required modules
+.\Requirements.ps1
+
+# Build the module (output lands in .\Fondue\)
+.\build.ps1 -Build
+
+# Run the Pester test harness
+.\harness.ps1 -Module Fondue
+</code></pre>
+<hr />
+<h2 id="license">License</h2>
+<p>Fondue is licensed under the <a href="LICENSE">MIT License</a>.<br />
+Copyright © 2026 Stephen Valdinger.</p>
               
             </div>
           </div><footer>
@@ -149,5 +624,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2026-03-11 02:33:31.081769+00:00
+Build Date UTC : 2026-03-13 13:15:26.099930+00:00
 -->
