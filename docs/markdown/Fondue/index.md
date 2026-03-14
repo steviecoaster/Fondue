@@ -34,7 +34,7 @@ Fondue provides a rich set of cmdlets that streamline every step of the Chocolat
   - [Test-Package](#test-package)
   - [Open-FondueHelp](#open-fonduehelp)
 - [Building from Source](#building-from-source)
-- [License](#license)
+- [Support](#support)
 
 ---
 
@@ -520,7 +520,7 @@ Fondue uses [ModuleBuilder](https://github.com/PoshCode/ModuleBuilder) to compil
 
 ---
 
-## License
+## Support
 
-Fondue is licensed under the [MIT License](LICENSE).  
-Copyright © 2026 Stephen Valdinger.
+Commercial support for this module is not available, however community assistance can be found
+by joining our [Discord](https://ch0.co/community) server!
