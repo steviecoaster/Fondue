@@ -51,7 +51,7 @@ $newDependencySplat = @{
 
 New-Dependency @newDependencySplat
 #>
-    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/New-Dependency')]
+    [CmdletBinding(HelpUri = 'https://chocolatey-solutions.github.io/Fondue/New-Dependency')]
     Param(
         [Parameter(Mandatory)]
         [String]

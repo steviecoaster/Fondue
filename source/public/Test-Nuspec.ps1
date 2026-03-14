@@ -34,7 +34,7 @@ function Test-Nuspec {
         .NOTES
         The function uses the Convert-Xml function to convert the .nuspec file to a hash table of metadata.
     #>
-    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Test-Nuspec')]
+    [CmdletBinding(HelpUri = 'https://chocolatey-solutions.github.io/Fondue/Test-Nuspec')]
     Param(
         [Parameter()]
         [ValidateScript({ Test-Path $_ })]

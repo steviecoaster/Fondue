@@ -68,7 +68,7 @@ function New-Package {
     .LINK
     https://docs.chocolatey.org/en-us/guides/create/
     #>
-    [CmdletBinding(DefaultParameterSetName = 'Default', HelpUri = 'https://steviecoaster.github.io/Fondue/New-Package')]
+    [CmdletBinding(DefaultParameterSetName = 'Default', HelpUri = 'https://chocolatey-solutions.github.io/Fondue/New-Package')]
     Param(
         [Parameter(Mandatory, ParameterSetName = 'Default')]
         [String]

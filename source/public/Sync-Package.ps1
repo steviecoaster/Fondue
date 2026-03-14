@@ -33,7 +33,7 @@ function Sync-Package {
     .NOTES
     Requires a Chocolatey For Business license
     #>
-    [CmdletBinding(DefaultParameterSetName = 'Default', HelpUri = 'https://steviecoaster.github.io/Fondue/Sync-Package')]
+    [CmdletBinding(DefaultParameterSetName = 'Default', HelpUri = 'https://chocolatey-solutions.github.io/Fondue/Sync-Package')]
     Param(
         [Parameter(Mandatory, ParameterSetName = 'Package')]
         [String]

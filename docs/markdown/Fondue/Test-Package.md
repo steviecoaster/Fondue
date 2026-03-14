@@ -1,7 +1,7 @@
 ---
 document type: cmdlet
 external help file: Fondue-Help.xml
-HelpUri: https://steviecoaster.github.io/Fondue/Test-Package
+HelpUri: https://chocolatey-solutions.github.io/Fondue/Test-Package
 Locale: en-US
 Module Name: Fondue
 ms.date: 03/10/2026

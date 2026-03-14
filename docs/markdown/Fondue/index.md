@@ -1,7 +1,7 @@
 ---
 document type: module
 Help Version: 1.0.0.0
-HelpInfoUri: https://steviecoaster.github.io/Fondue/
+HelpInfoUri: https://chocolatey-solutions.github.io/Fondue/
 Locale: en-US
 Module Guid: 20f7494c-ab60-4780-b9d6-5a9abc894075
 Module Name: Fondue

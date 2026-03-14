@@ -1,7 +1,7 @@
 ---
 document type: cmdlet
 external help file: Fondue-Help.xml
-HelpUri: https://steviecoaster.github.io/Fondue/Test-Nuspec
+HelpUri: https://chocolatey-solutions.github.io/Fondue/Test-Nuspec
 Locale: en-US
 Module Name: Fondue
 ms.date: 03/10/2026

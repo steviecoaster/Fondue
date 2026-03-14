@@ -28,7 +28,7 @@ function Test-Package {
         .NOTES
         The function uses the Fondue module to perform the tests.
     #>
-    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Test-Package')]
+    [CmdletBinding(HelpUri = 'https://chocolatey-solutions.github.io/Fondue/Test-Package')]
     Param(
         [Parameter(Mandatory)]
         [ValidateScript({ Test-Path $_ })]

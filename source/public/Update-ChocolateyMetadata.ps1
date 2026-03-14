@@ -21,7 +21,7 @@ function Update-ChocolateyMetadata {
         .NOTES
         The function uses the Write-Metadata function to write the updated metadata to the .nuspec file.
     #>
-    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/Update-ChocolateyMetadata')]
+    [CmdletBinding(HelpUri = 'https://chocolatey-solutions.github.io/Fondue/Update-ChocolateyMetadata')]
     Param(
         [Parameter(Mandatory,ValueFromPipeline,ValueFromRemainingArguments)]
         [Hashtable]

@@ -49,7 +49,7 @@ function New-Metapackage {
     General notes
     #>
     [Alias('New-VirtualPackage')]
-    [CmdletBinding(HelpUri = 'https://steviecoaster.github.io/Fondue/New-Metapackage')]
+    [CmdletBinding(HelpUri = 'https://chocolatey-solutions.github.io/Fondue/New-Metapackage')]
     Param(
         [Parameter(Position = 0, Mandatory)]
         [String]

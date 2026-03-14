@@ -24,10 +24,10 @@
     Author            = 'Stephen Valdinger'
 
     # Company or vendor of this module
-    CompanyName       = 'Unknown'
+    CompanyName       = 'Chocolatey Software'
 
     # Copyright statement for this module
-    Copyright         = '(c) svalding. All rights reserved.'
+    Copyright         = '(c) Chocolatey Software. All rights reserved.'
 
     # Description of the functionality provided by this module
     Description       = 'A module containing functions that ease creating Chocolatey packages'
@@ -135,7 +135,7 @@
     } # End of PrivateData hashtable
 
     # HelpInfo URI of this module
-    HelpInfoURI = 'https://steviecoaster.github.io/Fondue/'
+    HelpInfoURI = 'https://chocolatey-solutions.github.io/Fondue/'
 
     # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
     # DefaultCommandPrefix = ''
