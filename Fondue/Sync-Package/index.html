@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>New-Package - Fondue - Melting Chocolatey package complexity</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Sync-Package - Fondue - Melting Chocolatey package complexity</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "New-Package";
-        var mkdocs_page_input_path = "New-Package.md";
+        var mkdocs_page_name = "Sync-Package";
+        var mkdocs_page_input_path = "Fondue\\Sync-Package.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
+          <a href="../.." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Commands</span></p>
@@ -51,7 +51,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../New-Metapackage/">New-Metapackage</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">New-Package</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Package/">New-Package</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Sync-Package</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#synopsis">SYNOPSIS</a>
     </li>
@@ -59,11 +65,9 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#default-default">Default (Default)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#file">File</a>
+    <li class="toctree-l3"><a class="reference internal" href="#package">Package</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#url">Url</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#file_1">FIle</a>
+    <li class="toctree-l3"><a class="reference internal" href="#map">Map</a>
     </li>
         </ul>
     </li>
@@ -81,25 +85,17 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#example-4">EXAMPLE 4</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-5">EXAMPLE 5</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">PARAMETERS</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#-dependency">-Dependency</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-displayname">-DisplayName</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-file">-File</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-id">-Id</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-metadata">-Metadata</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-name">-Name</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-map">-Map</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#-outputdirectory">-OutputDirectory</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-recompile">-Recompile</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-url">-Url</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#commonparameters">CommonParameters</a>
     </li>
@@ -115,15 +111,9 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NuspecFile/">Test-NuspecFile</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Nuspec/">Test-Nuspec</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Package/">Test-Package</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NupkgFile/">Test-NupkgFile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Update-ChocolateyMetadata/">Update-ChocolateyMetadata</a>
                   </li>
@@ -135,17 +125,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Fondue - Melting Chocolatey package complexity</a>
+          <a href="../..">Fondue - Melting Chocolatey package complexity</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Commands</li>
-      <li class="breadcrumb-item active">New-Package</li>
+      <li class="breadcrumb-item active">Sync-Package</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/New-Package.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Fondue/Sync-Package.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -153,90 +143,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="new-package">New-Package</h1>
+                <h1 id="sync-package">Sync-Package</h1>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Generates a new Chocolatey Package</p>
+<p>Brings installed software under Chocolatey management using choco sync.</p>
 <h2 id="syntax">SYNTAX</h2>
 <h3 id="default-default">Default (Default)</h3>
-<pre><code>New-Package -Name &lt;string&gt; [-Dependency &lt;hashtable[]&gt;] [-Metadata &lt;hashtable&gt;]
- [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
+<pre><code>Sync-Package [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
 </code></pre>
-<h3 id="file">File</h3>
-<pre><code>New-Package -File &lt;string&gt; [-Dependency &lt;hashtable[]&gt;] [-Metadata &lt;hashtable&gt;]
- [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
+<h3 id="package">Package</h3>
+<pre><code>Sync-Package -Id &lt;string&gt; -DisplayName &lt;string&gt; [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
 </code></pre>
-<h3 id="url">Url</h3>
-<pre><code>New-Package -Url &lt;string&gt; [-Dependency &lt;hashtable[]&gt;] [-Metadata &lt;hashtable&gt;]
- [-OutputDirectory &lt;string&gt;] [-Recompile] [&lt;CommonParameters&gt;]
-</code></pre>
-<h3 id="file_1">FIle</h3>
-<pre><code>New-Package [-Recompile] [&lt;CommonParameters&gt;]
+<h3 id="map">Map</h3>
+<pre><code>Sync-Package -Map &lt;hashtable&gt; [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
 </code></pre>
 <h2 id="aliases">ALIASES</h2>
-<p>This cmdlet has the following aliases,
-  {{Insert list of aliases}}</p>
+<p>None</p>
 <h2 id="description">DESCRIPTION</h2>
-<p>Generates a Chocolatey Package.
-Can be used to generate from an installer (licensed versions only), meta (virtual) packages, or FOSS style packages</p>
+<p>Sync-Package wraps the 'choco sync' command provided by the Chocolatey Licensed
+Extension to bring software already visible in Programs and Features under
+Chocolatey management without reinstalling it.</p>
+<p>Three modes are supported:
+  - Default : syncs all unmanaged programs found in Programs and Features.
+  - Package : syncs a single application identified by its Programs and Features
+              display name, mapped to a specific Chocolatey package id.
+  - Map     : syncs multiple applications from a hashtable of DisplayName → PackageId
+              pairs in one call.</p>
+<p>After syncing, Fondue checks for a TODO.txt file in each synced package folder and
+surfaces its contents as a warning if found.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<p>Creating a basic package with a name:</p>
-<p>$params = @{
-    Name = "MyPackage"
-}
-New-Package @params</p>
-<h3 id="example-2">EXAMPLE 2</h3>
-<p>Create a package from an installer file</p>
-<p>New-Package -Name "MyInstallerPackage" -File "C:\path\to\installer.exe"</p>
-<h3 id="example-3">EXAMPLE 3</h3>
-<p>Create a package from an installer URL</p>
-<p>New-Package -Name "MyUrlPackage" -Url "http://example.com/installer.exe"</p>
-<h3 id="example-4">EXAMPLE 4</h3>
-<p>Create a package with metadata</p>
-<p>New-Package -Name "MyPackageWithMetadata" -Metadata @{Author="Me"; Version="1.0.0"}</p>
-<h3 id="example-5">EXAMPLE 5</h3>
-<p>Create a package in a specific output directory</p>
-<p>New-Package -Name "MyPackage" -OutputDirectory "C:\path\to\output\directory"</p>
-<h2 id="parameters">PARAMETERS</h2>
-<h3 id="-dependency">-Dependency</h3>
-<p>Dependencies to inject into the package.
-Required when using -IsMetaPackage.</p>
-<pre><code class="language-yaml">Type: System.Collections.Hashtable[]
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: Url
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: File
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: Default
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
+<p>Sync all unmanaged programs in Programs and Features</p>
+<pre><code class="language-powershell">Sync-Package
 </code></pre>
-<h3 id="-file">-File</h3>
-<p>An installer to package.
-Should be of type exe, msi, msu, or zip</p>
+<h3 id="example-2">EXAMPLE 2</h3>
+<p>Sync a single application by display name and package id</p>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Id          = 'googlechrome'
+    DisplayName = 'Google Chrome'
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<h3 id="example-3">EXAMPLE 3</h3>
+<p>Sync multiple applications from a hashtable</p>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Map = @{
+        'Google Chrome' = 'googlechrome'
+        'Notepad++'     = 'notepadplusplus'
+    }
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<h3 id="example-4">EXAMPLE 4</h3>
+<p>Sync and save package files to a custom output directory</p>
+<pre><code class="language-powershell">$syncPackageSplat = @{
+    Map             = @{'Notepad++' = 'notepadplusplus'}
+    OutputDirectory = 'C:\synced'
+}
+
+Sync-Package @syncPackageSplat
+</code></pre>
+<h2 id="parameters">PARAMETERS</h2>
+<h3 id="-displayname">-DisplayName</h3>
+<p>The exact display name of the application as it appears in Programs and Features.
+Required for the Package parameter set.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: File
+- Name: Package
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -246,28 +223,17 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
-<h3 id="-metadata">-Metadata</h3>
-<p>A hashtable of MetaData to include in the Nuspec File</p>
-<pre><code class="language-yaml">Type: System.Collections.Hashtable
+<h3 id="-id">-Id</h3>
+<p>The Chocolatey package id to assign to the synced application.
+Required for the Package parameter set.</p>
+<pre><code class="language-yaml">Type: System.String
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Url
+- Name: Package
   Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: File
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: Default
-  Position: Named
-  IsRequired: false
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -275,14 +241,16 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
-<h3 id="-name">-Name</h3>
-<p>The name (Id) to give to the package</p>
-<pre><code class="language-yaml">Type: System.String
+<h3 id="-map">-Map</h3>
+<p>A hashtable of DisplayName → PackageId pairs, used to sync multiple applications
+in a single call.
+Required for the Map parameter set.</p>
+<pre><code class="language-yaml">Type: System.Collections.Hashtable
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Default
+- Name: Map
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -293,20 +261,21 @@ AcceptedValues: []
 HelpMessage: ''
 </code></pre>
 <h3 id="-outputdirectory">-OutputDirectory</h3>
-<p>This is where the Chocolatey packaging will be generated.
-Defaults to the current working directory.</p>
+<p>The directory to which synced package files are written.
+Defaults to the current
+working directory.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: $PWD
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Url
+- Name: Package
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: File
+- Name: Map
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -315,48 +284,6 @@ ParameterSets:
 - Name: Default
   Position: Named
   IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-recompile">-Recompile</h3>
-<p>When used runs the pack command against the nuspec file</p>
-<pre><code class="language-yaml">Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: Url
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-- Name: FIle
-  Position: Named
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-url">-Url</h3>
-<p>The url of an installer to package.
-Installer will be downloaded and embedded into package.
-Supports same extensions as -File parameter.</p>
-<pre><code class="language-yaml">Type: System.String
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: Url
-  Position: Named
-  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -372,16 +299,15 @@ HelpMessage: ''
 <h2 id="inputs">INPUTS</h2>
 <h2 id="outputs">OUTPUTS</h2>
 <h2 id="notes">NOTES</h2>
+<p>Requires a Chocolatey for Business license and the Chocolatey Licensed Extension
+('chocolatey.extension') to be installed.</p>
 <h2 id="related-links">RELATED LINKS</h2>
-<ul>
-<li><a href="https://docs.chocolatey.org/en-us/guides/create/"></a></li>
-</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../New-Metapackage/" class="btn btn-neutral float-left" title="New-Metapackage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Open-FondueHelp/" class="btn btn-neutral float-right" title="Open-FondueHelp">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Remove-Dependency/" class="btn btn-neutral float-left" title="Remove-Dependency"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Test-NuspecFile/" class="btn btn-neutral float-right" title="Test-NuspecFile">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -408,18 +334,18 @@ HelpMessage: ''
         </span>
     
     
-      <span><a href="../New-Metapackage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Remove-Dependency/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Open-FondueHelp/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Test-NuspecFile/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

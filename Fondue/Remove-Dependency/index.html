@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Test-Nuspec - Fondue - Melting Chocolatey package complexity</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Remove-Dependency - Fondue - Melting Chocolatey package complexity</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Test-Nuspec";
-        var mkdocs_page_input_path = "Test-Nuspec.md";
+        var mkdocs_page_name = "Remove-Dependency";
+        var mkdocs_page_input_path = "Fondue\\Remove-Dependency.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
+          <a href="../.." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Commands</span></p>
@@ -55,11 +55,7 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Test-Nuspec</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Remove-Dependency</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#synopsis">SYNOPSIS</a>
     </li>
@@ -77,19 +73,13 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#example-1">EXAMPLE 1</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-2">EXAMPLE 2</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">PARAMETERS</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#-additionaltest">-AdditionalTest</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-dependency">-Dependency</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-metadata">-Metadata</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-nuspecfile">-NuspecFile</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-skipbuiltintests">-SkipBuiltinTests</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-packagenuspec">-PackageNuspec</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#commonparameters">CommonParameters</a>
     </li>
@@ -105,7 +95,11 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Package/">Test-Package</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NuspecFile/">Test-NuspecFile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NupkgFile/">Test-NupkgFile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Update-ChocolateyMetadata/">Update-ChocolateyMetadata</a>
                   </li>
@@ -117,17 +111,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Fondue - Melting Chocolatey package complexity</a>
+          <a href="../..">Fondue - Melting Chocolatey package complexity</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Commands</li>
-      <li class="breadcrumb-item active">Test-Nuspec</li>
+      <li class="breadcrumb-item active">Remove-Dependency</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Test-Nuspec.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Fondue/Remove-Dependency.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -135,59 +129,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="test-nuspec">Test-Nuspec</h1>
+                <h1 id="remove-dependency">Remove-Dependency</h1>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Tests a NuGet package specification (.nuspec) file for compliance with specified rules.</p>
+<p>Removes a dependency from a NuGet package specification file.</p>
 <h2 id="syntax">SYNTAX</h2>
 <h3 id="__allparametersets">__AllParameterSets</h3>
-<pre><code>Test-Nuspec [[-NuspecFile] &lt;string&gt;] [[-Metadata] &lt;hashtable&gt;] [[-AdditionalTest] &lt;string[]&gt;]
- [-SkipBuiltinTests] [&lt;CommonParameters&gt;]
+<pre><code>Remove-Dependency [-PackageNuspec] &lt;string&gt; [-Dependency] &lt;string[]&gt; [&lt;CommonParameters&gt;]
 </code></pre>
 <h2 id="aliases">ALIASES</h2>
-<p>This cmdlet has the following aliases,
-  {{Insert list of aliases}}</p>
+<p>None</p>
 <h2 id="description">DESCRIPTION</h2>
-<p>The Test-Nuspec function takes a .nuspec file and a set of rules as input.
-It tests the .nuspec file for compliance with the specified rules.
-The function can test for compliance with only the required rules, or it can also test for compliance with community rules.
-Additional tests can be specified.</p>
+<p>The Remove-Dependency function takes a NuGet package specification (.nuspec) file and an array of dependencies as input.</p>
+<p>It removes the specified dependencies from the .nuspec file.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<p>Test-Nuspec -NuspecFile "C:\path\to\package.nuspec" -OnlyRequiredRules</p>
-<p>This example tests the .nuspec file at the specified path for compliance with only the required rules.</p>
-<h3 id="example-2">EXAMPLE 2</h3>
-<p>Test-Nuspec -NuspecFile "C:\path\to\package.nuspec" -TestCommunityRules -AdditionalTest "Test1", "Test2"</p>
-<p>This example tests the .nuspec file at the specified path for compliance with community rules and runs the additional tests "Test1" and "Test2".</p>
+<pre><code class="language-powershell">$removeDependencySplat = @{
+    PackageNuspec = &quot;C:\path\to\package.nuspec&quot;
+    Dependency    = &quot;Dependency1&quot;, &quot;Dependency2&quot;
+}
+
+Remove-Dependency @removeDependencySplat
+</code></pre>
+<p>This example removes the dependencies "Dependency1" and "Dependency2" from the .nuspec file at the specified path.</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-additionaltest">-AdditionalTest</h3>
-<p>An array of additional tests to run.
-This parameter is optional.</p>
+<h3 id="-dependency">-Dependency</h3>
+<p>An array of dependencies to remove from the .nuspec file.
+This parameter is mandatory.</p>
 <pre><code class="language-yaml">Type: System.String[]
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
-  Position: 2
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-metadata">-Metadata</h3>
-<p>A hash table of metadata to test.
-This parameter is optional.</p>
-<pre><code class="language-yaml">Type: System.Collections.Hashtable
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
   Position: 1
-  IsRequired: false
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -195,9 +170,9 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
-<h3 id="-nuspecfile">-NuspecFile</h3>
-<p>The path to the .nuspec file to test.
-This parameter is validated to ensure that it is a valid path.</p>
+<h3 id="-packagenuspec">-PackageNuspec</h3>
+<p>The path to the .nuspec file from which to remove dependencies.
+This parameter is mandatory.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: ''
 SupportsWildcards: false
@@ -205,24 +180,7 @@ Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 0
-  IsRequired: false
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-skipbuiltintests">-SkipBuiltinTests</h3>
-<p>{{ Fill SkipBuiltinTests Description }}</p>
-<pre><code class="language-yaml">Type: System.Management.Automation.SwitchParameter
-DefaultValue: False
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: Named
-  IsRequired: false
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
@@ -238,15 +196,14 @@ HelpMessage: ''
 <h2 id="inputs">INPUTS</h2>
 <h2 id="outputs">OUTPUTS</h2>
 <h2 id="notes">NOTES</h2>
-<p>The function uses the Convert-Xml function to convert the .nuspec file to a hash table of metadata.</p>
+<p>The function does not support removing dependencies that are not directly listed in the .nuspec file.</p>
 <h2 id="related-links">RELATED LINKS</h2>
-<p>{{ Fill in the related links here }}</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Sync-Package/" class="btn btn-neutral float-left" title="Sync-Package"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Test-Package/" class="btn btn-neutral float-right" title="Test-Package">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Open-FondueHelp/" class="btn btn-neutral float-left" title="Open-FondueHelp"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Sync-Package/" class="btn btn-neutral float-right" title="Sync-Package">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -273,18 +230,18 @@ HelpMessage: ''
         </span>
     
     
-      <span><a href="../Sync-Package/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Open-FondueHelp/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Test-Package/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Sync-Package/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

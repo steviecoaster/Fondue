@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>New-Dependency - Fondue - Melting Chocolatey package complexity</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Test-NupkgFile - Fondue - Melting Chocolatey package complexity</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "New-Dependency";
-        var mkdocs_page_input_path = "New-Dependency.md";
+        var mkdocs_page_name = "Test-NupkgFile";
+        var mkdocs_page_input_path = "Fondue\\Test-NupkgFile.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
+          <a href="../.." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,14 +40,28 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Commands</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../Convert-Xml/">Convert-Xml</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">New-Dependency</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Dependency/">New-Dependency</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Metapackage/">New-Metapackage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Package/">New-Package</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NuspecFile/">Test-NuspecFile</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Test-NupkgFile</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#synopsis">SYNOPSIS</a>
     </li>
@@ -67,21 +81,15 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#example-2">EXAMPLE 2</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-3">EXAMPLE 3</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-4">EXAMPLE 4</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">PARAMETERS</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#-dependency">-Dependency</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-additionaltest">-AdditionalTest</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-nuspec">-Nuspec</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-onlyrequiredrules">-OnlyRequiredRules</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-outputdirectory">-OutputDirectory</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-recompile">-Recompile</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-packagepath">-PackagePath</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#commonparameters">CommonParameters</a>
     </li>
@@ -97,20 +105,6 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../New-Metapackage/">New-Metapackage</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../New-Package/">New-Package</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Nuspec/">Test-Nuspec</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Package/">Test-Package</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Update-ChocolateyMetadata/">Update-ChocolateyMetadata</a>
                   </li>
               </ul>
@@ -121,17 +115,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Fondue - Melting Chocolatey package complexity</a>
+          <a href="../..">Fondue - Melting Chocolatey package complexity</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Commands</li>
-      <li class="breadcrumb-item active">New-Dependency</li>
+      <li class="breadcrumb-item active">Test-NupkgFile</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/New-Dependency.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Fondue/Test-NupkgFile.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -139,87 +133,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="new-dependency">New-Dependency</h1>
+                <h1 id="test-nupkgfile">Test-NupkgFile</h1>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Injects a <dependency> node into a Chocolatey package nuspec file</p>
+<p>Tests a NuGet package for compliance with specified rules.</p>
 <h2 id="syntax">SYNTAX</h2>
 <h3 id="__allparametersets">__AllParameterSets</h3>
-<pre><code>New-Dependency [-Nuspec] &lt;string&gt; [-Dependency] &lt;hashtable[]&gt; [[-OutputDirectory] &lt;string&gt;]
- [-Recompile] [&lt;CommonParameters&gt;]
+<pre><code>Test-NupkgFile [-PackagePath] &lt;string&gt; [[-AdditionalTest] &lt;string[]&gt;] [-OnlyRequiredRules]
+ [&lt;CommonParameters&gt;]
 </code></pre>
 <h2 id="aliases">ALIASES</h2>
-<p>This cmdlet has the following aliases,
-  {{Insert list of aliases}}</p>
+<p>None</p>
 <h2 id="description">DESCRIPTION</h2>
-<p>Long description</p>
+<p>The Test-NupkgFile function takes a NuGet package and a set of rules as input.
+It tests the package for compliance with the specified rules.
+The function can test for compliance with only the required rules, or it can also test for compliance with all system rules.
+Additional tests can be specified.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<p>Add a single dependency with a version</p>
-<p>New-Dependency -Nuspec C:\packages\foo.1.1.1.nuspec -dependency @{id= 'baz'; version='3.4.2'}</p>
+<pre><code class="language-powershell">$testNupkgFileSplat = @{
+    PackagePath       = &quot;C:\path\to\package.nupkg&quot;
+    OnlyRequiredRules = $true
+}
+
+Test-NupkgFile @testNupkgFileSplat
+</code></pre>
+<p>This example tests the NuGet package at the specified path for compliance with only the required rules.</p>
 <h3 id="example-2">EXAMPLE 2</h3>
-<p>Add multiple dependencies</p>
-<p>New-Dependency -Nuspec C:\packages\foo.1.1.0.nuspec -Dependency @{id='baz'; version='1.1.1'},@{id='boo';version=[1.0.1,2.9.0]}</p>
-<h3 id="example-3">EXAMPLE 3</h3>
-<p>Add a dependency and recompile the package</p>
-<p>$newDependencySplat = @{
-    Nuspec = 'C:\packagesfoo.1.1.1.nuspec'
-    Dependency = @{id= 'baz'; version='3.4.2'}
-    Recompile = $true
-}</p>
-<p>New-Dependency @newDependencySplat</p>
-<h3 id="example-4">EXAMPLE 4</h3>
-<p>Add a dependency, recompile the package, and save it to a new location</p>
-<p>$newDependencySplat = @{
-    Nuspec = 'C:\packagesfoo.1.1.1.nuspec'
-    Dependency = @{id= 'baz'; version='3.4.2'}
-    Recompile = $true
-    OutputDirectory = 'C:\recompiled'
-}</p>
-<p>New-Dependency @newDependencySplat</p>
+<pre><code class="language-powershell">$testNupkgFileSplat = @{
+    PackagePath    = &quot;C:\path\to\package.nupkg&quot;
+    AdditionalTest = &quot;Test1&quot;, &quot;Test2&quot;
+}
+
+Test-NupkgFile @testNupkgFileSplat
+</code></pre>
+<p>This example tests the NuGet package at the specified path and runs the additional tests "Test1" and "Test2".</p>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-dependency">-Dependency</h3>
-<p>A hashtable containing the package id and version range for the dependency</p>
-<pre><code class="language-yaml">Type: System.Collections.Hashtable[]
+<h3 id="-additionaltest">-AdditionalTest</h3>
+<p>An array of additional tests to run.
+This parameter is optional.</p>
+<pre><code class="language-yaml">Type: System.String[]
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
 - Name: (All)
   Position: 1
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-nuspec">-Nuspec</h3>
-<p>THe Chocolatey package nuspec to which add a dependency</p>
-<pre><code class="language-yaml">Type: System.String
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 0
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-outputdirectory">-OutputDirectory</h3>
-<p>Save the recompiled Chocolatey Package to this location</p>
-<pre><code class="language-yaml">Type: System.String
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: (All)
-  Position: 2
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -228,8 +186,8 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
-<h3 id="-recompile">-Recompile</h3>
-<p>Recompile the Chocolatey package with the new dependency information.</p>
+<h3 id="-onlyrequiredrules">-OnlyRequiredRules</h3>
+<p>A switch that, when present, causes the function to test for compliance with only the required rules.</p>
 <pre><code class="language-yaml">Type: System.Management.Automation.SwitchParameter
 DefaultValue: False
 SupportsWildcards: false
@@ -245,6 +203,24 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
+<h3 id="-packagepath">-PackagePath</h3>
+<p>The path to the NuGet package to test.
+This parameter is mandatory and validated to ensure that it is a valid path.</p>
+<pre><code class="language-yaml">Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 0
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+</code></pre>
 <h3 id="commonparameters">CommonParameters</h3>
 <p>This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
@@ -253,14 +229,14 @@ HelpMessage: ''
 <h2 id="inputs">INPUTS</h2>
 <h2 id="outputs">OUTPUTS</h2>
 <h2 id="notes">NOTES</h2>
+<p>The function uses the Fondue module to perform the tests.</p>
 <h2 id="related-links">RELATED LINKS</h2>
-<p>{{ Fill in the related links here }}</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Convert-Xml/" class="btn btn-neutral float-left" title="Convert-Xml"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../New-Metapackage/" class="btn btn-neutral float-right" title="New-Metapackage">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Test-NuspecFile/" class="btn btn-neutral float-left" title="Test-NuspecFile"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Update-ChocolateyMetadata/" class="btn btn-neutral float-right" title="Update-ChocolateyMetadata">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -287,18 +263,18 @@ HelpMessage: ''
         </span>
     
     
-      <span><a href="../Convert-Xml/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../Test-NuspecFile/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../New-Metapackage/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../Update-ChocolateyMetadata/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

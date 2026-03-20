@@ -4,21 +4,21 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Sync-Package - Fondue - Melting Chocolatey package complexity</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>New-Metapackage - Fondue - Melting Chocolatey package complexity</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Sync-Package";
-        var mkdocs_page_input_path = "Sync-Package.md";
+        var mkdocs_page_name = "New-Metapackage";
+        var mkdocs_page_input_path = "Fondue\\New-Metapackage.md";
         var mkdocs_page_url = null;
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -30,9 +30,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
+          <a href="../.." class="icon icon-home"> Fondue - Melting Chocolatey package complexity
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -40,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Commands</span></p>
@@ -49,25 +49,13 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../New-Dependency/">New-Dependency</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../New-Metapackage/">New-Metapackage</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../New-Package/">New-Package</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Sync-Package</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">New-Metapackage</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#synopsis">SYNOPSIS</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#syntax">SYNTAX</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#default-default">Default (Default)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#package">Package</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#map">Map</a>
+    <li class="toctree-l3"><a class="reference internal" href="#__allparametersets">__AllParameterSets</a>
     </li>
         </ul>
     </li>
@@ -81,19 +69,21 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#example-2">EXAMPLE 2</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#example-3">EXAMPLE 3</a>
-    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#parameters">PARAMETERS</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#-displayname">-DisplayName</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-dependency">-Dependency</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-description">-Description</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#-id">-Id</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-map">-Map</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-path">-Path</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#-outputdirectory">-OutputDirectory</a>
+    <li class="toctree-l3"><a class="reference internal" href="#-summary">-Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#-version">-Version</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#commonparameters">CommonParameters</a>
     </li>
@@ -109,9 +99,17 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Nuspec/">Test-Nuspec</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../New-Package/">New-Package</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../Test-Package/">Test-Package</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Open-FondueHelp/">Open-FondueHelp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Remove-Dependency/">Remove-Dependency</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Sync-Package/">Sync-Package</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NuspecFile/">Test-NuspecFile</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Test-NupkgFile/">Test-NupkgFile</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Update-ChocolateyMetadata/">Update-ChocolateyMetadata</a>
                   </li>
@@ -123,17 +121,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Fondue - Melting Chocolatey package complexity</a>
+          <a href="../..">Fondue - Melting Chocolatey package complexity</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Commands</li>
-      <li class="breadcrumb-item active">Sync-Package</li>
+      <li class="breadcrumb-item active">New-Metapackage</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Sync-Package.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/steviecoaster/Fondue/edit/master/docs/Fondue/New-Metapackage.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -141,43 +139,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="sync-package">Sync-Package</h1>
+                <h1 id="new-metapackage">New-Metapackage</h1>
 <h2 id="synopsis">SYNOPSIS</h2>
-<p>Runs choco sync on a system</p>
+<p>Creates a new Chocolatey meta (virtual) package.</p>
 <h2 id="syntax">SYNTAX</h2>
-<h3 id="default-default">Default (Default)</h3>
-<pre><code>Sync-Package [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
-</code></pre>
-<h3 id="package">Package</h3>
-<pre><code>Sync-Package -Id &lt;string&gt; -DisplayName &lt;string&gt; [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
-</code></pre>
-<h3 id="map">Map</h3>
-<pre><code>Sync-Package -Map &lt;hashtable&gt; [-OutputDirectory &lt;string&gt;] [&lt;CommonParameters&gt;]
+<h3 id="__allparametersets">__AllParameterSets</h3>
+<pre><code>New-Metapackage [-Id] &lt;string&gt; [-Summary] &lt;string&gt; [-Dependency] &lt;hashtable[]&gt; -Description &lt;string&gt;
+ [-Path &lt;string&gt;] [-Version &lt;string&gt;] [&lt;CommonParameters&gt;]
 </code></pre>
 <h2 id="aliases">ALIASES</h2>
-<p>This cmdlet has the following aliases,
-  {{Insert list of aliases}}</p>
+<p>None</p>
 <h2 id="description">DESCRIPTION</h2>
-<p>Run choco sync against a system with eiher a single item or from a map</p>
+<p>New-Metapackage generates the .nuspec file needed to define a Chocolatey metapackage —
+a package that contains no software itself but declares a set of dependencies that will
+be installed together.
+The nuspec is written to -Path (defaults to the current directory)
+and can optionally be given an explicit semantic version.</p>
 <h2 id="examples">EXAMPLES</h2>
 <h3 id="example-1">EXAMPLE 1</h3>
-<p>Sync-Package</p>
-<p>Sync everything from Programs and Features not under Chocolatey management</p>
+<p>Create a minimal metapackage using only mandatory parameters</p>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id='git'}, @{id='vscode'}, @{id='nodejs'}
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
 <h3 id="example-2">EXAMPLE 2</h3>
-<p>Sync-Package -Id googlechrome -DisplayName 'Google Chrome'</p>
-<p>Sync the Google Chrome application from Programs and Features to the googlechrome package id</p>
-<h3 id="example-3">EXAMPLE 3</h3>
-<p>Sync-Package -Map @{'Google Chrome' = 'googlechrome'}</p>
-<p>Sync from a hashtable of DisplayName:PackageId pairs</p>
+<p>Create a metapackage with a pre-release version saved to a custom path</p>
+<pre><code class="language-powershell">$newMetapackageSplat = @{
+    Id          = 'dev-tools'
+    Summary     = 'Common developer tools'
+    Description = 'Installs a curated set of developer tooling for new machines.'
+    Dependency  = @{id='git'; version='2.44.0'}, @{id='putty'}
+    Version     = '1.0.0-pre'
+    Path        = 'C:\chocopackages'
+}
+
+New-Metapackage @newMetapackageSplat
+</code></pre>
 <h2 id="parameters">PARAMETERS</h2>
-<h3 id="-displayname">-DisplayName</h3>
-<p>The Diplay Name From Programs and Features</p>
+<h3 id="-dependency">-Dependency</h3>
+<p>An array of hashtables, each with an 'id' key and an optional 'version' key, describing
+the packages that will be pulled in when this metapackage is installed
+(e.g.
+@{id='git'; version='2.44.0'}).</p>
+<pre><code class="language-yaml">Type: System.Collections.Hashtable[]
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 2
+  IsRequired: true
+  ValueFromPipeline: false
+  ValueFromPipelineByPropertyName: false
+  ValueFromRemainingArguments: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+</code></pre>
+<h3 id="-description">-Description</h3>
+<p>A longer description of the metapackage.
+Must be at least 30 characters.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Package
+- Name: (All)
   Position: Named
   IsRequired: true
   ValueFromPipeline: false
@@ -188,14 +220,16 @@ AcceptedValues: []
 HelpMessage: ''
 </code></pre>
 <h3 id="-id">-Id</h3>
-<p>The Package id for the synced package</p>
+<p>The package id for the metapackage (e.g.
+'dev-tools').
+Used as the nuspec <id> element.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: ''
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Package
-  Position: Named
+- Name: (All)
+  Position: 0
   IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
@@ -204,43 +238,52 @@ DontShow: false
 AcceptedValues: []
 HelpMessage: ''
 </code></pre>
-<h3 id="-map">-Map</h3>
-<p>A hashtable of DisplayName and PackageIds</p>
-<pre><code class="language-yaml">Type: System.Collections.Hashtable
-DefaultValue: ''
-SupportsWildcards: false
-Aliases: []
-ParameterSets:
-- Name: Map
-  Position: Named
-  IsRequired: true
-  ValueFromPipeline: false
-  ValueFromPipelineByPropertyName: false
-  ValueFromRemainingArguments: false
-DontShow: false
-AcceptedValues: []
-HelpMessage: ''
-</code></pre>
-<h3 id="-outputdirectory">-OutputDirectory</h3>
-<p>{{ Fill OutputDirectory Description }}</p>
+<h3 id="-path">-Path</h3>
+<p>The directory in which to write the generated .nuspec file.
+Defaults to the current
+working directory.</p>
 <pre><code class="language-yaml">Type: System.String
 DefaultValue: $PWD
 SupportsWildcards: false
 Aliases: []
 ParameterSets:
-- Name: Package
+- Name: (All)
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: Map
-  Position: Named
-  IsRequired: false
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+</code></pre>
+<h3 id="-summary">-Summary</h3>
+<p>A short, one-line summary of what the metapackage installs.</p>
+<pre><code class="language-yaml">Type: System.String
+DefaultValue: ''
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
+  Position: 1
+  IsRequired: true
   ValueFromPipeline: false
   ValueFromPipelineByPropertyName: false
   ValueFromRemainingArguments: false
-- Name: Default
+DontShow: false
+AcceptedValues: []
+HelpMessage: ''
+</code></pre>
+<h3 id="-version">-Version</h3>
+<p>A valid semantic version for the package (e.g.
+'1.0.0' or '1.0.0-pre').
+Defaults to '0.1.0'.</p>
+<pre><code class="language-yaml">Type: System.String
+DefaultValue: 0.1.0
+SupportsWildcards: false
+Aliases: []
+ParameterSets:
+- Name: (All)
   Position: Named
   IsRequired: false
   ValueFromPipeline: false
@@ -258,15 +301,16 @@ HelpMessage: ''
 <h2 id="inputs">INPUTS</h2>
 <h2 id="outputs">OUTPUTS</h2>
 <h2 id="notes">NOTES</h2>
-<p>Requires a Chocolatey For Business license</p>
+<p>This function requires Chocolatey to be installed so that the metapackage template can be
+placed in the standard templates directory.</p>
+<p>Alias: New-VirtualPackage</p>
 <h2 id="related-links">RELATED LINKS</h2>
-<p>{{ Fill in the related links here }}</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../Remove-Dependency/" class="btn btn-neutral float-left" title="Remove-Dependency"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../Test-Nuspec/" class="btn btn-neutral float-right" title="Test-Nuspec">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../New-Dependency/" class="btn btn-neutral float-left" title="New-Dependency"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../New-Package/" class="btn btn-neutral float-right" title="New-Package">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -293,18 +337,18 @@ HelpMessage: ''
         </span>
     
     
-      <span><a href="../Remove-Dependency/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../New-Dependency/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../Test-Nuspec/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../New-Package/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
